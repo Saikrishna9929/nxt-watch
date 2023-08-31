@@ -1,5 +1,5 @@
 import {Component} from 'react'
-import {UserContext} from '../../context/index'
+import {UserContext} from '../context/index'
 
 class UserProvider extends Component {
   state = {savedVideosList: []}

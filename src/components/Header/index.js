@@ -55,10 +55,6 @@ const Header = props => (
         history.replace('/login')
       }
 
-      const onChangeTheme = () => {
-        onToggleTheme()
-      }
-
       const HeaderWebsiteLogoUrl = isDarkTheme
         ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png'
         : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png'
@@ -72,7 +68,7 @@ const Header = props => (
             <ModeChangeButtonListItem key="item1">
               <ModeChangeButton
                 type="button"
-                onClick={onChangeTheme}
+                onClick={onToggleTheme}
                 data-testid="theme"
               >
                 {isDarkTheme ? (
@@ -99,7 +95,7 @@ const Header = props => (
                   <NavbarModalContainer isDarkTheme={isDarkTheme}>
                     <ModalCloseButton onClick={close}>
                       <RiCloseLine
-                        size="50"
+                        size="40"
                         color={isDarkTheme ? '#ffffff' : '#000000'}
                       />
                     </ModalCloseButton>
@@ -206,15 +202,13 @@ const Header = props => (
               <Popup
                 modal
                 trigger={
-                  <LogoutIconButton type="button">
-                    <FiLogOut
-                      size="22"
-                      color={isDarkTheme ? '#ffffff' : '#000000'}
-                    />
-                  </LogoutIconButton>
+                  <LogoutButton isDarkTheme={isDarkTheme} type="button">
+                    Logout
+                  </LogoutButton>
                 }
                 lockScroll
-                className="popup-content"
+                arrow={false}
+                position="center center"
               >
                 {close => (
                   <LogoutModalBgContainer>
@@ -244,12 +238,16 @@ const Header = props => (
               <Popup
                 modal
                 trigger={
-                  <LogoutButton isDarkTheme={isDarkTheme} type="button">
-                    Logout
-                  </LogoutButton>
+                  <LogoutIconButton type="button">
+                    <FiLogOut
+                      size="22"
+                      color={isDarkTheme ? '#ffffff' : '#000000'}
+                    />
+                  </LogoutIconButton>
                 }
-                lockScroll
                 className="popup-content"
+                arrow={false}
+                lockScroll
               >
                 {close => (
                   <LogoutModalBgContainer>

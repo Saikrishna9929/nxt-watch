@@ -70,8 +70,11 @@ export const NavbarModalContainer = styled.div`
   display: flex;
   align-items: flex-start;
   background-color: ${props => (props.isDarkTheme ? '#212121' : '#ffffff')};
-  height: 100vh;
-  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background-size: cover;
 `
 
